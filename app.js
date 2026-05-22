@@ -8,42 +8,31 @@ window.location.pathname
 
 if(isAdmin){
 
-app.innerHTML = `
+app.innerHTML=`
 
 <div class="topbar">
 
 <span>
-
 NIGHTFALL //
 ADMIN PANEL
-
 </span>
 
 <span>
-
 OBSERVER
-
 </span>
 
 <span>
-
 LOCKED
-
 </span>
 
 </div>
 
 
-
-<div class="layout">
-
-<main>
-
 <section class="panel">
 
 <h1>
 
-🔒 ДОСТУП
+ПАНЕЛЬ НАБЛЮДАТЕЛЯ
 
 </h1>
 
@@ -51,33 +40,10 @@ LOCKED
 
 <input
 id="pwd"
-
-placeholder="
-пароль"
-
-style="
-width:100%;
-padding:12px;
-background:#0a0a0a;
-border:1px solid #222;
-color:white;
-margin-bottom:12px;
-">
+placeholder="пароль">
 
 <button
-
-onclick="login()"
-
-style="
-width:100%;
-padding:12px;
-background:#111;
-color:white;
-border:1px solid #222;
-cursor:pointer;
-"
-
->
+onclick="login()">
 
 ВОЙТИ
 
@@ -88,50 +54,24 @@ cursor:pointer;
 
 
 <section
-
 id="adminArea"
 
 style="
 display:none;
 margin-top:14px;
-"
-
->
+">
 
 <div class="grid">
 
 <section class="panel">
 
 <h2>
-
-ДОБАВИТЬ
-НАБЛЮДЕНИЕ
-
+ДОБАВИТЬ ЛОГ
 </h2>
 
-<textarea
+<textarea id="log">
 
-id="log"
-
-style="
-width:100%;
-height:140px;
-background:#080808;
-color:white;
-border:1px solid #222;
-padding:10px;
-"
-
-></textarea>
-
-<br><br>
-
-<button
-onclick="addLog()">
-
-СОХРАНИТЬ
-
-</button>
+</textarea>
 
 </section>
 
@@ -146,92 +86,16 @@ onclick="addLog()">
 </h2>
 
 <input
-id="caseName"
-
 placeholder="
 название">
 
-<br><br>
-
-<button
-onclick="addCase()">
-
-СОЗДАТЬ
-
-</button>
-
-</section>
-
-
-
-<section class="panel">
-
-<h2>
-
-СОСТОЯНИЕ
-СОНИ
-
-</h2>
-
-<input
-
-id="state"
-
-placeholder="
-новая метка">
-
-<br><br>
-
-<button
-onclick="
-addState()">
-
-ДОБАВИТЬ
-
-</button>
-
-</section>
-
-
-
-<section class="panel">
-
-<h2>
-
-АНОМАЛИЯ
-
-</h2>
-
-<input
-
-id="anom"
-
-placeholder="
-описание">
-
-<br><br>
-
-<button
-onclick="
-addAnomaly()">
-
-СОЗДАТЬ
-
-</button>
-
 </section>
 
 </div>
 
 </section>
-
-</main>
-
-</div>
 
 `;
-
-
 
 window.login=()=>{
 
@@ -260,49 +124,18 @@ document
 
 };
 
-
-
-window.addLog=()=>{
-
-alert(
-"наблюдение сохранено"
-);
-
-};
-
-window.addCase=()=>{
-
-alert(
-"дело создано"
-);
-
-};
-
-window.addState=()=>{
-
-alert(
-"состояние изменено"
-);
-
-};
-
-window.addAnomaly=()=>{
-
-alert(
-"аномалия зарегистрирована"
-);
-
-};
+}
 
 
 
+else{
 
 
-}else{
 
-app.innerHTML = `
+app.innerHTML=`
 
 <div class="topbar">
+
 <span>
 SONYA ARCHIVE //
 OBSERVATION INTERFACE
@@ -313,6 +146,7 @@ NIGHTFALL-7
 </span>
 
 <span id="clock"></span>
+
 </div>
 
 
@@ -329,8 +163,7 @@ SONYA ARCHIVE
 
 <div class="ver">
 
-v2.0 //
-CASE FILES
+v2.0 // CASE FILES
 
 </div>
 
@@ -340,28 +173,47 @@ CASE FILES
 
 <ul class="nav">
 
-<li
-data-link="index.html">
+<li>⌂ ГЛАВНАЯ</li>
 
-⌂ ГЛАВНАЯ
+<li>⌘ ДОСЬЕ: СОНЯ</li>
 
-</li>
+<li>✢ АРХИВ ДЕЛ</li>
 
-<li
-data-link="pages/sonya.html">
+<li>✦ КАРТА ГОРОДА</li>
 
-⌘ ДОСЬЕ: СОНЯ
+<li>📝 ЗАМЕТКИ</li>
 
-</li>
+<li>◫ МЕДИА</li>
 
-<li
-data-link="admin">
+<li>
+
+<a
+href="/admin"
+
+style="
+color:white;
+text-decoration:none">
 
 ⚙ АДМИН
+
+</a>
 
 </li>
 
 </ul>
+
+</div>
+
+<div class="section">
+
+АРХИВ: АКТИВЕН<br>
+
+НАБЛЮДЕНИЕ: ВКЛ<br>
+
+СУБЪЕКТ: СОНЯ<br>
+
+ПРОТОКОЛ:
+NIGHTFALL
 
 </div>
 
@@ -375,6 +227,7 @@ data-link="admin">
 </div>
 
 </aside>
+
 
 
 
@@ -397,8 +250,27 @@ src="assets/sonya_portrait.png">
 
 </h1>
 
+ИМЯ: Соня<br>
+
+ВОЗРАСТ:
+неизвестно<br>
+
+ПОЛ:
+женский<br><br>
+
 СТАТУС [ONLINE]<br>
+
+СОН [НЕСТАБИЛЕН]<br>
+
 КВАРТИРА 28
+
+<br><br>
+
+УРОВЕНЬ ОПАСНОСТИ
+
+<br>
+
+⬛⬛⬛⬜⬜
 
 </div>
 
@@ -411,7 +283,177 @@ src="assets/seal_eye.png">
 
 </section>
 
+
+
+<div class="grid">
+
+<section class="panel case">
+
+<h3>
+
+ДЕЛО №001
+
+</h3>
+
+<div class="caseWrap">
+
+<img
+src="assets/case001_door28.png">
+
+<div>
+
+КВАРТИРА 28
+
+<br><br>
+
+НЕОПОЗНАННАЯ
+СУЩНОСТЬ
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="panel case">
+
+<h3>
+
+ДЕЛО №002
+«МОРФЕЙ»
+
+</h3>
+
+<div class="caseWrap">
+
+<img
+src="assets/observer_eye.png">
+
+<div>
+
+🔒 ДОСТУП
+ОГРАНИЧЕН
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="panel observer">
+
+<h3>
+
+ИЗМЕНЕНИЯ
+СУБЪЕКТА
+
+</h3>
+
+<div class="observerWrap">
+
+<img
+src="assets/paper_note.png">
+
+<div>
+
++ нарушение сна<br>
+
++ усталость<br>
+
++ реакция
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="panel room">
+
+<h3>
+
+ПОСЛЕДНИЙ
+КАДР
+
+</h3>
+
+<img
+src="assets/room_lastframe.png">
+
+</section>
+
+</div>
+
+
+
+<section class="panel protocol">
+
+[INFO]
+соединение
+установлено
+
+<br>
+
+[WARN]
+обнаружена
+активность
+
+</section>
+
 </main>
+
+
+
+
+<aside class="rightbar">
+
+<section class="panel">
+
+<h3>
+
+LOG
+
+</h3>
+
+02:14 субъект вернулся<br>
+
+02:16 окно<br>
+
+02:33 смотрит
+
+</section>
+
+
+
+<section class="panel note">
+
+<img
+src="assets/paper_note.png">
+
+</section>
+
+
+
+<section class="panel">
+
+<h3>
+
+КАРТА ГОРОДА
+
+</h3>
+
+<img
+src="assets/city_map.png">
+
+</section>
+
+</aside>
 
 </div>
 
@@ -421,23 +463,18 @@ src="assets/seal_eye.png">
 
 function updateClock(){
 
-const c=
 document
 .getElementById(
 "clock"
-);
+)
 
-if(c){
-
-c.innerText=
+.innerText=
 
 new Date()
 
 .toLocaleTimeString(
 "ru-RU"
 );
-
-}
 
 }
 
