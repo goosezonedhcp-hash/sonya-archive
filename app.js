@@ -350,7 +350,8 @@ src="assets/observer_eye.png">
 
 <div id="morpheus">
 
-🔒 ДОСТУП ОГРАНИЧЕН
+🔒 ДОСТУП
+ОГРАНИЧЕН
 
 </div>
 
@@ -538,10 +539,9 @@ localStorage.getItem(
 if(saved){
 
 logArea.innerHTML=
-saved.replaceAll(
-"\n",
-"<br>"
-);
+saved
+.split("\n")
+.join("<br>");
 
 }
 
