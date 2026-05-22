@@ -188,7 +188,7 @@ v2.0 // CASE FILES
 <li>
 
 <a
-href="/admin"
+href="pages/admin.html"
 
 style="
 color:white;

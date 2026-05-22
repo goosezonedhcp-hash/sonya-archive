@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+NIGHTFALL ADMIN
+</title>
+
+<link rel="stylesheet"
+href="../style.css">
+
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script>
+
+document.getElementById(
+"app"
+
+).innerHTML=`
+
+<div class="topbar">
+
+<span>
+NIGHTFALL ADMIN
+</span>
+
+<span>
+OBSERVER
+</span>
+
+<span>
+LOCKED
+</span>
+
+</div>
+
+<section class="panel">
+
+<h1>
+
+ПАНЕЛЬ НАБЛЮДАТЕЛЯ
+
+</h1>
+
+<br>
+
+<input
+id="pwd"
+placeholder="пароль">
+
+<button
+onclick="login()">
+
+ВОЙТИ
+
+</button>
+
+</section>
+
+<section
+id="adminArea"
+
+style="
+display:none;
+margin-top:20px;
+">
+
+<div class="grid">
+
+<section class="panel">
+
+<h2>
+НОВЫЙ ЛОГ
+</h2>
+
+<textarea
+style="
+width:100%;
+height:180px;
+background:black;
+color:white">
+
+</textarea>
+
+</section>
+
+<section class="panel">
+
+<h2>
+НОВОЕ ДЕЛО
+</h2>
+
+<input
+placeholder="название">
+
+</section>
+
+</div>
+
+</section>
+
+`;
+
+function login(){
+
+if(
+
+document
+.getElementById(
+"pwd"
+).value
+
+===
+
+"NIGHTFALL-7"
+
+){
+
+document
+.getElementById(
+"adminArea"
+)
+
+.style.display=
+"block";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
