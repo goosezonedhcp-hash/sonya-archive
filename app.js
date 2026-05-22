@@ -1144,3 +1144,76 @@ alert(
 
 
 archiveAI();
+
+
+
+
+async function observerTick(){
+
+const logs = localStorage.getItem(
+"nightfall_logs"
+) || "нет логов";
+
+try{
+
+const r = await fetch(
+"http://localhost:11434/api/generate",
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+model:"qwen2.5:7b",
+
+prompt:`
+
+Ты ИИ наблюдатель NIGHTFALL.
+
+Проанализируй журнал:
+
+${logs}
+
+Ответь строго так:
+
+УГРОЗА:
+...
+
+РЕКОМЕНДАЦИЯ:
+...
+
+СОСТОЯНИЕ:
+...
+
+`
+
+})
+
+}
+
+);
+
+const data = await r.json();
+
+console.log(
+"[OBSERVER]"
+);
+
+console.log(
+data.response
+);
+
+}
+catch(e){
+
+console.log(
+"observer offline"
+);
+
+}
+
+}
