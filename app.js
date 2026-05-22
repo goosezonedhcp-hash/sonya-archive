@@ -450,6 +450,44 @@ src="assets/observer_eye.png">
 
 
 
+<section class="panel case">
+
+<h3>
+
+ДЕЛО №003
+«ЭХО»
+
+</h3>
+
+<div class="caseWrap">
+
+<img
+src="assets/observer_eye.png">
+
+<div id="echoCase">
+
+СТАТУС:
+НЕАКТИВНО
+
+<br><br>
+
+ОБЪЕКТ:
+повторяющиеся сообщения
+
+<br><br>
+
+ПРИМЕЧАНИЕ:
+источник неизвестен
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
 
 <section class="panel observer">
 
@@ -676,5 +714,41 @@ morph.innerHTML=
 АКТИВЕН
 
 `;
+
+/* ЭХО */
+
+let echo=
+
+document.getElementById(
+"echoCase"
+);
+
+if(
+
+echo &&
+
+logs.length>=5
+
+){
+
+echo.innerHTML=
+
+`
+
+АКТИВНО
+
+<br><br>
+
+ПОСЛЕДНЕЕ
+СООБЩЕНИЕ:
+
+<br><br>
+
+"она начинает
+замечать"
+
+`;
+
+}
 
 }
