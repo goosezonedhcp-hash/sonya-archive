@@ -3,21 +3,10 @@ const app = document.getElementById("app");
 app.innerHTML = `
 
 <div class="topbar">
-
-<span>
-SONYA ARCHIVE //
-OBSERVATION INTERFACE
-</span>
-
-<span>
-NIGHTFALL-7
-</span>
-
-<span id="clock"></span>
-
+    <span>SONYA ARCHIVE // OBSERVATION INTERFACE</span>
+    <span>NIGHTFALL-7</span>
+    <span id="clock"></span>
 </div>
-
-
 
 <div class="layout">
 
@@ -26,30 +15,46 @@ NIGHTFALL-7
 <h2>SONYA ARCHIVE</h2>
 
 <div class="ver">
-
-v2.0 //
-CASE FILES
-
+v2.0 // CASE FILES
 </div>
 
 <div class="section">
 
 НАВИГАЦИЯ
 
-<ul>
+<ul class="nav">
 
-<li>⌂ ГЛАВНАЯ</li>
-<li>⌘ ДОСЬЕ: СОНЯ</li>
-<li>✢ АРХИВ ДЕЛ</li>
-<li>✦ КАРТА ГОРОДА</li>
-<li>📝 ЗАМЕТКИ</li>
-<li>◫ МЕДИА</li>
-<li>⚙ СИСТЕМА</li>
+<li data-link="index.html">
+⌂ ГЛАВНАЯ
+</li>
+
+<li data-link="pages/sonya.html">
+⌘ ДОСЬЕ: СОНЯ
+</li>
+
+<li data-link="pages/cases.html">
+✢ АРХИВ ДЕЛ
+</li>
+
+<li data-link="pages/map.html">
+✦ КАРТА ГОРОДА
+</li>
+
+<li data-link="pages/notes.html">
+📝 ЗАМЕТКИ
+</li>
+
+<li data-link="pages/media.html">
+◫ МЕДИА
+</li>
+
+<li>
+⚙ СИСТЕМА
+</li>
 
 </ul>
 
 </div>
-
 
 <div class="section">
 
@@ -59,7 +64,6 @@ CASE FILES
 ПРОТОКОЛ: NIGHTFALL
 
 </div>
-
 
 <div class="quote">
 
@@ -81,10 +85,10 @@ CASE FILES
 <div class="portrait">
 
 <img
-src="assets/sonya_portrait.png">
+src="assets/sonya_portrait.png"
+alt="sonya">
 
 </div>
-
 
 <div class="heroInfo">
 
@@ -102,13 +106,16 @@ src="assets/sonya_portrait.png">
 
 ⬛⬛⬛⬜⬜
 
-</div>
+<br><br>
 
+Субъект представляет интерес.<br>
+Рекомендуется продолжать наблюдение.
+
+</div>
 
 <div class="seal">
 
-<img
-src="assets/seal_eye.png">
+<img src="assets/seal_eye.png">
 
 </div>
 
@@ -117,7 +124,6 @@ src="assets/seal_eye.png">
 
 
 <div class="grid">
-
 
 <section class="panel case">
 
@@ -132,8 +138,14 @@ src="assets/case001_door28.png">
 
 КВАРТИРА 28<br><br>
 
-НЕОПОЗНАННАЯ
-СУЩНОСТЬ
+НЕОПОЗНАННАЯ СУЩНОСТЬ<br><br>
+
+ТИП:<br>
+искажённая реальность<br><br>
+
+УГРОЗА<br>
+
+⬛⬛⬛⬜⬜
 
 </div>
 
@@ -146,10 +158,7 @@ src="assets/case001_door28.png">
 <section class="panel case">
 
 <h3>
-
-ДЕЛО №002
-«МОРФЕЙ»
-
+ДЕЛО №002 «МОРФЕЙ»
 </h3>
 
 <div class="caseWrap">
@@ -158,6 +167,11 @@ src="assets/case001_door28.png">
 src="assets/observer_eye.png">
 
 <div>
+
+ПСИХОАКТИВНОЕ
+ВОЗДЕЙСТВИЕ
+
+<br><br>
 
 🔒 ДОСТУП
 ОГРАНИЧЕН
@@ -173,10 +187,7 @@ src="assets/observer_eye.png">
 <section class="panel observer">
 
 <h3>
-
-ИЗМЕНЕНИЯ
-СУБЪЕКТА
-
+ИЗМЕНЕНИЯ СУБЪЕКТА
 </h3>
 
 <div class="observerWrap">
@@ -202,8 +213,7 @@ src="assets/paper_note.png">
 
 <h3>
 
-ПОСЛЕДНИЙ
-КАДР
+ПОСЛЕДНИЙ КАДР
 
 </h3>
 
@@ -218,11 +228,15 @@ src="assets/room_lastframe.png">
 
 <section class="panel protocol">
 
-[INFO]
-соединение установлено<br>
+СИСТЕМНЫЙ ПРОТОКОЛ<br><br>
 
-[WARN]
-активность квартира 28
+[INFO] соединение установлено<br>
+
+[WARN] обнаружена активность<br>
+
+[WARN] сектор квартира 28<br>
+
+[INFO] наблюдение продолжается
 
 </section>
 
@@ -230,18 +244,22 @@ src="assets/room_lastframe.png">
 
 
 
-
 <aside class="rightbar">
 
 <section class="panel">
 
-<h3>LOG</h3>
+<h3>
+
+LOG
+
+</h3>
 
 02:14 субъект вернулся<br>
 02:16 окно<br>
 02:33 смотрит
 
 </section>
+
 
 
 <section class="panel note">
@@ -252,13 +270,11 @@ src="assets/paper_note.png">
 </section>
 
 
+
 <section class="panel">
 
 <h3>
-
-КАРТА
-ГОРОДА
-
+КАРТА ГОРОДА
 </h3>
 
 <img
@@ -274,24 +290,50 @@ src="assets/city_map.png">
 
 function updateClock(){
 
-document
-.getElementById(
+document.getElementById(
 "clock"
-)
-
-.innerText=
+).innerText=
 
 new Date()
-
 .toLocaleTimeString(
 "ru-RU"
 );
 
 }
 
-updateClock();
-
 setInterval(
 updateClock,
 1000
 );
+
+updateClock();
+
+
+
+document
+.querySelectorAll(
+".nav li"
+)
+
+.forEach(el=>{
+
+el.addEventListener(
+"click",
+
+()=>{
+
+const link =
+el.dataset.link;
+
+if(link){
+
+location.href=
+link;
+
+}
+
+}
+
+);
+
+});
