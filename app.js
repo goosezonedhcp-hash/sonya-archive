@@ -884,4 +884,108 @@ location.reload();
 
 });
 
+const anomalies=[
+
+"[WARN] субъект заметил наблюдение",
+
+"ERROR: observer disconnected",
+
+"[ALERT] неизвестная активность",
+
+"ERROR: protocol damaged",
+
+"[WARN] визуальный контакт",
+
+"соединение нестабильно"
+
+];
+
+
+
+setInterval(()=>{
+
+if(
+
+Math.random()
+
+<0.15
+
+){
+
+const msg=
+
+anomalies[
+
+Math.floor(
+
+Math.random()
+
+*
+
+anomalies.length
+
+)
+
+];
+
+
+
+const warn=
+
+document.createElement(
+"div"
+);
+
+
+
+warn.innerHTML=
+
+msg;
+
+
+
+warn.style=`
+
+position:fixed;
+
+bottom:20px;
+
+right:20px;
+
+background:black;
+
+border:1px solid #333;
+
+padding:12px;
+
+z-index:9999;
+
+font-size:12px;
+
+`;
+
+
+
+document.body
+.appendChild(
+warn
+);
+
+
+
+setTimeout(
+
+()=>warn.remove(),
+
+5000
+
+);
+
+}
+
+},
+
+45000
+);
+
 }
