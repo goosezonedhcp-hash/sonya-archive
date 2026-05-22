@@ -66,10 +66,18 @@ margin-top:14px;
 <section class="panel">
 
 <h2>
-ДОБАВИТЬ ЛОГ
+НОВЫЙ ЛОГ
 </h2>
 
-<textarea id="log">
+<textarea
+id="log"
+
+style="
+width:100%;
+height:220px;
+background:black;
+color:white;
+">
 
 </textarea>
 
@@ -97,6 +105,8 @@ placeholder="
 
 `;
 
+
+
 window.login=()=>{
 
 if(
@@ -121,21 +131,67 @@ document
 "block";
 
 
-const logs=
 
-localStorage.getItem(
-"nightfall_logs"
-);
-
-if(logs){
+const logBox=
 
 document
 .getElementById(
 "log"
-).value=
-logs;
+);
 
-}
+
+
+const saved=
+
+JSON.parse(
+
+localStorage.getItem(
+"nightfallLogs"
+)
+
+||
+
+"[]"
+
+);
+
+
+
+logBox.value=
+
+saved.join(
+"\n"
+);
+
+
+
+logBox.addEventListener(
+"input",
+()=>{
+
+const arr=
+
+logBox.value
+
+.split("\n")
+
+.filter(
+x=>x.trim()
+);
+
+
+
+localStorage.setItem(
+
+"nightfallLogs",
+
+JSON.stringify(
+arr
+)
+
+);
+
+});
 
 }
 
@@ -184,32 +240,47 @@ v2.0 // CASE FILES
 
 </div>
 
+
+
 <div class="section">
 
 НАВИГАЦИЯ
 
 <ul class="nav">
 
-<li>⌂ ГЛАВНАЯ</li>
+<li>
+⌂ ГЛАВНАЯ
+</li>
 
-<li>⌘ ДОСЬЕ: СОНЯ</li>
+<li>
+⌘ ДОСЬЕ: СОНЯ
+</li>
 
-<li>✢ АРХИВ ДЕЛ</li>
+<li>
+✢ АРХИВ ДЕЛ
+</li>
 
-<li>✦ КАРТА ГОРОДА</li>
+<li>
+✦ КАРТА ГОРОДА
+</li>
 
-<li>📝 ЗАМЕТКИ</li>
+<li>
+📝 ЗАМЕТКИ
+</li>
 
-<li>◫ МЕДИА</li>
+<li>
+◫ МЕДИА
+</li>
 
 <li>
 
 <a
-href="pages/admin.html"
+href="/admin"
 
 style="
 color:white;
-text-decoration:none">
+text-decoration:none;
+">
 
 ⚙ АДМИН
 
@@ -220,6 +291,8 @@ text-decoration:none">
 </ul>
 
 </div>
+
+
 
 <div class="section">
 
@@ -233,6 +306,8 @@ text-decoration:none">
 NIGHTFALL
 
 </div>
+
+
 
 <div class="quote">
 
@@ -248,6 +323,7 @@ NIGHTFALL
 
 
 
+
 <main>
 
 <section class="panel hero">
@@ -258,6 +334,8 @@ NIGHTFALL
 src="assets/sonya_portrait.png">
 
 </div>
+
+
 
 <div class="heroInfo">
 
@@ -291,6 +369,8 @@ src="assets/sonya_portrait.png">
 
 </div>
 
+
+
 <div class="seal">
 
 <img
@@ -302,7 +382,11 @@ src="assets/seal_eye.png">
 
 
 
+
+
 <div class="grid">
+
+
 
 <section class="panel case">
 
@@ -334,6 +418,8 @@ src="assets/case001_door28.png">
 
 
 
+
+
 <section class="panel case">
 
 <h3>
@@ -358,6 +444,8 @@ src="assets/observer_eye.png">
 </div>
 
 </section>
+
+
 
 
 
@@ -391,6 +479,8 @@ src="assets/paper_note.png">
 
 
 
+
+
 <section class="panel room">
 
 <h3>
@@ -409,6 +499,8 @@ src="assets/room_lastframe.png">
 
 
 
+
+
 <section class="panel protocol">
 
 [INFO]
@@ -424,6 +516,7 @@ src="assets/room_lastframe.png">
 </section>
 
 </main>
+
 
 
 
@@ -502,67 +595,9 @@ updateClock,
 
 }
 
-const logBox=
-document.getElementById(
-"log"
-);
-const logBox=
-document.getElementById(
-"log"
-);
-
-if(logBox){
-
-const savedLogs=
-
-JSON.parse(
-
-localStorage.getItem(
-"nightfallLogs"
-)
-
-||
-
-"[]"
-
-);
-
-logBox.value=
-
-savedLogs.join(
-"\n"
-);
 
 
-logBox.addEventListener(
-"input",
-()=>{
-
-const arr=
-
-logBox.value
-
-.split("\n")
-
-.filter(
-x=>x.trim()
-);
-
-localStorage.setItem(
-
-"nightfallLogs",
-
-JSON.stringify(
-arr
-)
-
-);
-
-});
-
-}
-
-
+/* ЛОГИ */
 
 let logs=
 
@@ -586,6 +621,8 @@ document.getElementById(
 "logArea"
 );
 
+
+
 if(area){
 
 area.innerHTML=
@@ -596,17 +633,23 @@ x=>
 
 x+"<br>"
 
-).join("");
+)
+
+.join("");
 
 }
 
 
+
+/* МОРФЕЙ */
 
 let morph=
 
 document.getElementById(
 "morpheus"
 );
+
+
 
 if(
 
