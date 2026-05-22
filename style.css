@@ -1,12 +1,1 @@
-
-body{margin:0;background:#050505;color:#d0d0d0;font-family:monospace;background-image:radial-gradient(#111 1px,transparent 1px);background-size:4px 4px}
-.top{padding:12px 18px;border-bottom:1px solid #222;display:flex;justify-content:space-between}
-.layout{display:grid;grid-template-columns:240px 1fr 340px;gap:10px;padding:10px}
-.box{border:1px solid #2a2a2a;background:#080808;padding:12px;position:relative}
-.center{display:grid;gap:10px}
-.hero{display:grid;grid-template-columns:260px 1fr}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.paper{background:#11100d;border:1px dashed #555;padding:8px;font-style:italic}
-.red{color:#a33}
-pre{margin:0;white-space:pre-wrap}
+body{background:#050505;color:white}
