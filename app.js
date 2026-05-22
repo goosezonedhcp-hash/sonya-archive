@@ -995,7 +995,7 @@ async function archiveAI(){
 const logs=
 
 localStorage.getItem(
-"nightfall_logs"
+"nightfalllogs"
 )
 
 ||
@@ -1124,13 +1124,8 @@ answer.includes(
 
 ){
 
-document.body
-.style.filter=
-
-"contrast(1.2)
-brightness(.9)";
-
-
+document.body.style.filter=
+"contrast(1.2)brightness(.9)";
 
 setTimeout(()=>{
 
