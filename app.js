@@ -990,3 +990,93 @@ setTimeout(
 45000
 );
 
+async function archiveAI(){
+
+const logs=
+
+localStorage.getItem(
+"nightfall_logs"
+)
+
+||
+
+"нет логов";
+
+
+
+const prompt=`
+
+Ты NIGHTFALL OBSERVER.
+
+Ты анализируешь архив.
+
+Отвечай ТОЛЬКО так:
+
+[ANALYSIS]
+
+...
+
+[THREAT]
+
+...
+
+[PROTOCOL]
+
+...
+
+ЛОГИ:
+
+${logs}
+
+`;
+
+
+
+const response=
+
+await fetch(
+
+"http://localhost:11434/api/generate",
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":
+"application/json"
+
+},
+
+body:
+
+JSON.stringify({
+
+model:
+"qwen2.5:7b",
+
+prompt,
+
+stream:false
+
+})
+
+}
+
+);
+
+
+
+const data=
+await response.json();
+
+console.log(
+data.response
+);
+
+}
+
+
+
+archiveAI();
