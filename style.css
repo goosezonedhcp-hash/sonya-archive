@@ -1,34 +1,32 @@
 
 body{
-margin:0;
-background:#050505;
-color:#eaeaea;
+background:#05010a;
+color:#fff;
 font-family:monospace;
-display:flex;
+margin:0;
 }
-
 .sidebar{
-width:240px;
-background:#111;
+position:fixed;
+left:0;
+top:0;
+width:220px;
 height:100vh;
+background:#0d0715;
+border-right:2px solid #ff00d4;
 padding:20px;
 }
-
-.sidebar a{
-display:block;
-margin:14px 0;
-color:#ddd;
-text-decoration:none;
+.content{
+margin-left:260px;
+padding:20px;
 }
-
-.main{
-flex:1;
-padding:30px;
-}
-
 .card{
-border:1px solid #444;
-border-radius:10px;
-padding:15px;
-margin:15px 0;
+background:rgba(0,0,0,.75);
+border:2px solid #ff00d4;
+margin-bottom:20px;
+padding:20px;
+box-shadow:0 0 15px #ff00d4;
+}
+h1,h2{
+color:#ff00d4;
+text-shadow:0 0 10px #ff00d4;
 }
