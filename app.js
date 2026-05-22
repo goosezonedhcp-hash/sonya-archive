@@ -994,9 +994,19 @@ async function archiveAI(){
 
 const logs=
 
+JSON.parse(
+
 localStorage.getItem(
-"nightfalllogs"
+"nightfallLogs"
 )
+
+||
+
+"[]"
+
+)
+
+.join("\n")
 
 ||
 
@@ -1091,12 +1101,31 @@ answer.includes(
 
 ){
 
-document
-.getElementById(
-"morpheus"
-)
+const morph =
 
-.innerHTML=
+document.getElementById(
+"morpheus"
+);
+
+if(morph){
+
+morph.innerHTML=
+
+`
+
+⚠ ДОСТУП
+РАЗРЕШЁН
+
+<br><br>
+
+ПРОЕКТ
+«МОРФЕЙ»
+
+АКТИВЕН
+
+`;
+
+}
 
 `
 
@@ -1150,9 +1179,25 @@ archiveAI();
 
 async function observerTick(){
 
-const logs = localStorage.getItem(
-"nightfall_logs"
-) || "нет логов";
+const logs=
+
+JSON.parse(
+
+localStorage.getItem(
+"nightfallLogs"
+)
+
+||
+
+"[]"
+
+)
+
+.join("\n")
+
+||
+
+"нет логов";
 
 try{
 
@@ -1207,6 +1252,62 @@ console.log(
 data.response
 );
 
+const txt =
+data.response
+.toLowerCase();
+
+
+
+if(
+
+txt.includes(
+"камер"
+)
+
+||
+
+txt.includes(
+"контакт"
+)
+
+){
+
+localStorage.setItem(
+
+"observerProtocol",
+
+"wake"
+
+);
+
+console.log(
+
+"[SYSTEM] protocol 12-b enabled"
+
+);
+
+}
+
+
+
+if(
+
+txt.includes(
+"угроз"
+)
+
+){
+
+localStorage.setItem(
+
+"nightfallEvent",
+
+"aware"
+
+);
+
+}
+
 }
 catch(e){
 
@@ -1215,5 +1316,85 @@ console.log(
 );
 
 }
+
+}
+
+setInterval(
+
+observerTick,
+
+60000
+
+);
+
+if(
+
+localStorage.getItem(
+"nightfallEvent"
+)
+
+===
+
+"aware"
+
+){
+
+document.body.style.filter=
+"contrast(1.3)brightness(.8)";
+
+
+
+setTimeout(()=>{
+
+const e=
+
+document.createElement(
+"div"
+);
+
+
+
+e.innerHTML=
+
+`
+
+СИГНАЛ:
+СУБЪЕКТ
+ОСОЗНАЛ
+НАБЛЮДЕНИЕ
+
+`;
+
+
+
+e.style=`
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+background:black;
+
+border:1px solid red;
+
+padding:30px;
+
+z-index:99999;
+
+font-size:24px;
+
+`;
+
+
+
+document.body
+.appendChild(e);
+
+},4000);
 
 }
