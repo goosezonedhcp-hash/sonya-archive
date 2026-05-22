@@ -748,6 +748,8 @@ morph.innerHTML=
 
 `;
 
+}
+
 /* ЭХО */
 
 let echo=
@@ -988,4 +990,3 @@ setTimeout(
 45000
 );
 
-}
