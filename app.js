@@ -1,8 +1,10 @@
 const app = document.getElementById("app");
 
 const isAdmin =
-window.location.pathname
-.includes("/admin");
+
+window.location.search
+
+.includes("admin");
 
 
 
@@ -275,7 +277,7 @@ v2.0 // CASE FILES
 <li>
 
 <a
-href="/admin"
+href="?admin"
 
 style="
 color:white;
