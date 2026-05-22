@@ -1,1 +1,10 @@
-body{background:#080808;color:#ddd;font-family:monospace;margin:0;display:flex}.sidebar{width:230px;height:100vh;background:#111;border-right:1px solid #444;padding:20px}.sidebar a{display:block;color:#ccc;text-decoration:none;margin:12px 0}.small{color:#888;margin-bottom:20px}.main{padding:30px;flex:1;background-image:radial-gradient(#222 1px,transparent 1px);background-size:10px 10px}.card{border:1px solid #444;background:#0d0d0d;padding:20px;margin-bottom:20px;box-shadow:0 0 10px rgba(255,255,255,.05)}
+
+body{margin:0;background:#070707;color:#d7d7d7;font-family:monospace}
+.layout{display:grid;grid-template-columns:260px 1fr 320px;min-height:100vh}
+.sidebar,.right{background:#0d0d0d;border-right:1px solid #333;padding:20px}
+.right{border-left:1px solid #333}
+.main{padding:20px;background-image:radial-gradient(#1a1a1a 1px,transparent 1px);background-size:8px 8px}
+.panel{background:#0b0b0b;border:1px solid #3a3a3a;padding:18px;margin-bottom:20px;box-shadow:0 0 12px rgba(255,255,255,.05)}
+.small{color:#888}
+ul{padding-left:18px}
+h1,h2,h3{color:#f0f0f0}
