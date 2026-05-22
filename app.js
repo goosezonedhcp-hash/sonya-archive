@@ -488,6 +488,39 @@ src="assets/observer_eye.png">
 
 
 
+<section class="panel case">
+
+<h3>
+
+ДЕЛО №004
+«НАБЛЮДАТЕЛЬ»
+
+</h3>
+
+<div class="caseWrap">
+
+<img
+src="assets/seal_eye.png">
+
+<div id="observerCase">
+
+🔒 ДОСТУП
+ЗАПРЕЩЁН
+
+<br><br>
+
+ТРЕБУЕТСЯ
+ПРОТОКОЛ
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
 
 <section class="panel observer">
 
@@ -746,6 +779,50 @@ echo.innerHTML=
 
 "она начинает
 замечать"
+
+`;
+
+}
+
+/* НАБЛЮДАТЕЛЬ */
+
+let observer=
+
+document.getElementById(
+"observerCase"
+);
+
+
+
+const protocol=
+
+localStorage.getItem(
+"observerProtocol"
+);
+
+
+
+if(
+
+observer &&
+
+protocol==="wake"
+
+){
+
+observer.innerHTML=
+
+`
+
+ПРОТОКОЛ
+12-Б
+
+АКТИВЕН
+
+<br><br>
+
+«наблюдать.
+не вмешиваться»
 
 `;
 
