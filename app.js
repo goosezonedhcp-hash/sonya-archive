@@ -120,6 +120,23 @@ document
 .style.display=
 "block";
 
+
+const logs=
+
+localStorage.getItem(
+"nightfall_logs"
+);
+
+if(logs){
+
+document
+.getElementById(
+"log"
+).value=
+logs;
+
+}
+
 }
 
 };
@@ -331,10 +348,9 @@ src="assets/case001_door28.png">
 <img
 src="assets/observer_eye.png">
 
-<div>
+<div id="morpheus">
 
-🔒 ДОСТУП
-ОГРАНИЧЕН
+🔒 ДОСТУП ОГРАНИЧЕН
 
 </div>
 
@@ -421,11 +437,9 @@ LOG
 
 </h3>
 
-02:14 субъект вернулся<br>
+<div id="logArea">
 
-02:16 окно<br>
-
-02:33 смотрит
+</div>
 
 </section>
 
@@ -484,5 +498,111 @@ setInterval(
 updateClock,
 1000
 );
+
+}
+
+const logBox=
+document.getElementById(
+"log"
+);
+
+if(logBox){
+
+logBox.addEventListener(
+"input",
+()=>{
+
+localStorage.setItem(
+"nightfall_logs",
+logBox.value
+);
+
+});
+
+}
+
+
+const logArea=
+document.getElementById(
+"logArea"
+);
+
+if(logArea){
+
+const saved=
+
+localStorage.getItem(
+"nightfall_logs"
+);
+
+if(saved){
+
+logArea.innerHTML=
+saved.replaceAll(
+"\n",
+"<br>"
+);
+
+}
+
+}
+
+let logs=
+
+JSON.parse(
+
+localStorage.getItem(
+"nightfallLogs"
+)
+
+||
+
+"[]"
+
+);
+
+let area=
+
+document.getElementById(
+"logArea"
+);
+
+if(area){
+
+area.innerHTML=
+
+logs.map(
+
+x=>x+"<br>"
+
+).join("");
+
+}
+
+
+
+if(
+
+logs.length>=3
+
+){
+
+document
+.getElementById(
+"morpheus"
+)
+
+.innerHTML=
+
+`
+
+ДОСТУП РАЗРЕШЁН
+
+<br><br>
+
+ПРОЕКТ МОРФЕЙ
+АКТИВЕН
+
+`;
 
 }

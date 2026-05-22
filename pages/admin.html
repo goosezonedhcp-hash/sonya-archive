@@ -81,13 +81,29 @@ margin-top:20px;
 </h2>
 
 <textarea
+
+id="log"
+
 style="
 width:100%;
 height:180px;
 background:black;
-color:white">
+color:white;
+padding:10px;
+border:1px solid #222;
+font-family:inherit;
+"
 
-</textarea>
+></textarea>
+
+<br><br>
+
+<button
+onclick="saveLog()">
+
+ДОБАВИТЬ ЛОГ
+
+</button>
 
 </section>
 
@@ -132,6 +148,61 @@ document
 "block";
 
 }
+
+}
+
+
+
+function saveLog(){
+
+let logs=
+
+JSON.parse(
+
+localStorage.getItem(
+"nightfallLogs"
+)
+
+||
+
+"[]"
+
+);
+
+let value=
+
+document
+.getElementById(
+"log"
+)
+
+.value;
+
+if(!value)return;
+
+logs.push(value);
+
+localStorage.setItem(
+
+"nightfallLogs",
+
+JSON.stringify(
+logs
+)
+
+);
+
+document
+.getElementById(
+"log"
+)
+
+.value="";
+
+alert(
+"ЛОГ СОХРАНЁН"
+
+);
 
 }
 
