@@ -1071,9 +1071,78 @@ stream:false
 const data=
 await response.json();
 
-console.log(
+console.log(data.response);
+
+const answer =
 data.response
+.toLowerCase();
+
+if(
+
+answer.includes(
+"угроз"
+)
+
+||
+
+answer.includes(
+"опас"
+)
+
+){
+
+document
+.getElementById(
+"morpheus"
+)
+
+.innerHTML=
+
+`
+
+⚠ ДОСТУП
+РАЗРЕШЁН
+
+<br><br>
+
+ПРОЕКТ
+«МОРФЕЙ»
+
+АКТИВЕН
+
+`;
+
+}
+
+
+
+if(
+
+answer.includes(
+"наблюд"
+)
+
+){
+
+document.body
+.style.filter=
+
+"contrast(1.2)
+brightness(.9)";
+
+
+
+setTimeout(()=>{
+
+alert(
+
+"ERROR:\nSUBJECT AWARE"
+
 );
+
+},3000);
+
+}
 
 }
 
