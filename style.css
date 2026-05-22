@@ -1,9 +1,9 @@
 
-body{margin:0;background:#060606;color:#ddd;font-family:monospace}
-.layout{display:grid;grid-template-columns:280px 1fr}
-.left{padding:20px;background:#0c0c0c;border-right:1px solid #333}
-main{padding:25px;background-image:radial-gradient(#1b1b1b 1px,transparent 1px);background-size:7px 7px}
-.panel,.box{background:#0b0b0b;border:1px solid #444;padding:18px;margin-bottom:20px;position:relative}
-.paper{position:absolute;right:10px;top:5px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.quote{color:#aaa}
+body{margin:0;background:#070707;color:#ddd;font-family:monospace}
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{background:#0c0c0c;border-right:1px solid #333;padding:20px}
+.main{padding:25px;background-image:radial-gradient(#1a1a1a 1px,transparent 1px);background-size:8px 8px}
+.card{background:#0b0b0b;border:1px solid #444;padding:18px;margin-bottom:18px;position:relative}
+.pin{position:absolute;right:8px;top:5px}
+a{color:#ccc;text-decoration:none;display:block;margin:10px 0}
+pre{color:#eee}
