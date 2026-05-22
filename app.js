@@ -506,16 +506,56 @@ const logBox=
 document.getElementById(
 "log"
 );
+const logBox=
+document.getElementById(
+"log"
+);
 
 if(logBox){
+
+const savedLogs=
+
+JSON.parse(
+
+localStorage.getItem(
+"nightfallLogs"
+)
+
+||
+
+"[]"
+
+);
+
+logBox.value=
+
+savedLogs.join(
+"\n"
+);
+
 
 logBox.addEventListener(
 "input",
 ()=>{
 
-localStorage.setItem(
-"nightfall_logs",
+const arr=
+
 logBox.value
+
+.split("\n")
+
+.filter(
+x=>x.trim()
+);
+
+localStorage.setItem(
+
+"nightfallLogs",
+
+JSON.stringify(
+arr
+)
+
 );
 
 });
@@ -523,29 +563,6 @@ logBox.value
 }
 
 
-const logArea=
-document.getElementById(
-"logArea"
-);
-
-if(logArea){
-
-const saved=
-
-localStorage.getItem(
-"nightfall_logs"
-);
-
-if(saved){
-
-logArea.innerHTML=
-saved
-.split("\n")
-.join("<br>");
-
-}
-
-}
 
 let logs=
 
@@ -561,6 +578,8 @@ localStorage.getItem(
 
 );
 
+
+
 let area=
 
 document.getElementById(
@@ -573,7 +592,9 @@ area.innerHTML=
 
 logs.map(
 
-x=>x+"<br>"
+x=>
+
+x+"<br>"
 
 ).join("");
 
@@ -581,26 +602,32 @@ x=>x+"<br>"
 
 
 
+let morph=
+
+document.getElementById(
+"morpheus"
+);
+
 if(
+
+morph &&
 
 logs.length>=3
 
 ){
 
-document
-.getElementById(
-"morpheus"
-)
-
-.innerHTML=
+morph.innerHTML=
 
 `
 
-ДОСТУП РАЗРЕШЁН
+ДОСТУП
+РАЗРЕШЁН
 
 <br><br>
 
-ПРОЕКТ МОРФЕЙ
+ПРОЕКТ
+«МОРФЕЙ»
+
 АКТИВЕН
 
 `;
